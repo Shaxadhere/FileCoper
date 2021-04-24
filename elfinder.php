@@ -1,3 +1,11 @@
+<?php
+include_once('config.php');
+session_start();
+if(!isset($_SESSION['USER'])){
+    redirectWindow("auth/index");
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
