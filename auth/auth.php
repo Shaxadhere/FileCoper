@@ -4,15 +4,11 @@ include_once('../config.php');
 
 //Request from login confirm
 if (isset($_POST['login'])) {
-  //if it contains email in POST
-  if (isset($_POST['Email'])) {
-    //if email is empty string
-    if (empty($_POST['Email'])) {
-      redirectWindow("index?Email=Email cannot be empty");
-    }
-    //if email is invalid
-    else if (!validateEmail($_POST['Email'])) {
-      redirectWindow("index?Email=Invalid Email");
+  //if it contains Username in POST
+  if (isset($_POST['Username'])) {
+    //if Username is empty string
+    if (empty($_POST['Username'])) {
+      redirectWindow("index?Username=Username cannot be empty");
     }
   }
 
@@ -24,12 +20,12 @@ if (isset($_POST['login'])) {
     }
   }
 
-  //verifies the email entered
+  //verifies the Username entered
   $user = verifyValues(
-    "tbl_users",
+    "tbl_user",
     array(
-      "Email",
-      $_POST['Email']
+      "Username",
+      $_POST['Username']
     ),
     connect()
   );
@@ -41,7 +37,6 @@ if (isset($_POST['login'])) {
   if (isset($ValidUser)) {
     //checking the password
     if (password_verify($_POST['Password'], $ValidUser['Password'])) {
-      $UserType = $ValidUser['FK_UserType'];
       session_start();
       $_SESSION["USER"] = $ValidUser;
       redirectWindow(getHTMLRoot());
@@ -53,6 +48,6 @@ if (isset($_POST['login'])) {
   }
   //returning Email doesnt exists
   else {
-    redirectWindow("index?Email=Email doesnt exists");
+    redirectWindow("index?Username=Username doesnt exists");
   }
 }

@@ -40,19 +40,19 @@
 
     <div class="nm-tm-wr">
       <div class="container">
-        <form action="auth">
+        <form action="auth" method="post">
           <div class="nm-hr nm-up-rl-3">
             <h2>ARTT Lecture Manager</h2>
           </div>
 
           <div class="input-group nm-gp">
             <span class="nm-gp-pp"><i class="fas fa-user"></i></span>
-            <input name="username" type="text" class="form-control" id="inputUsername" tabindex="1" placeholder="Username" required>
+            <input name="Username" type="text" class="form-control" id="inputUsername" tabindex="1" placeholder="Username" required>
           </div>
 
           <div class="input-group nm-gp">
             <span class="nm-gp-pp"><i class="fas fa-lock"></i></span>
-            <input name="password" type="password" class="form-control" id="inputPassword" tabindex="2" placeholder="Password" required>
+            <input name="Password" type="password" class="form-control" id="inputPassword" tabindex="2" placeholder="Password" required>
           </div>
 
           <div class="input-group nm-gp">
