@@ -110,16 +110,29 @@ if (!isset($_SESSION['USER'])) {
 
     <div id="elfinder"></div>
 
-<button class="btn btn-danger" onclick="location.href='logout'" type="button">Logout</button>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function() {})
 
         $(document).ready(function() {
             setTimeout(function() {
-                // $('#elfinder').attr('style', 'width: auto; height:900px !important');
-            }, 3);
+                var logoutBtn = "<button onclick='location.href='logout'' style='" +
+                    "display: inline-block;" +
+                    "font-weight: 200;" +
+                    "text-align: center;" +
+                    "vertical-align: middle;" +
+                    "user-select: none;" +
+                    "padding: 0px 11px 16px 15px;" +
+                    "font-size: 15px;" +
+                    "line-height: 1.6;" +
+                    "border-radius: 0.3125rem;" +
+                    "box-shadow: 0 4px 20px 0 rgb(0 123 255 / 14%), 0 7px 10px -5px rgb(0 82 234 / 40%);" +
+                    "height: 8px" +
+                    "'><img style='width: 15px;margin-right: 7px;' src='img/logout.png'/>Logout</button>";
+                $('.elfinder-toolbar').append(logoutBtn)
+            }, 3000);
         });
+
     </script>
 </body>
 

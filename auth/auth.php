@@ -39,8 +39,7 @@ if (isset($_POST['login'])) {
     //checking the password
     if (password_verify($_POST['Password'], $ValidUser['Password'])) {
       session_start();
-      showAlert(json_encode($ValidUser));
-      $_SESSION['USER'] = "jkashdkjashdkjashdjk";
+      $_SESSION['USER'] = $ValidUser;
       redirectWindow(getHTMLRoot());
     }
     //returning password is incorect
