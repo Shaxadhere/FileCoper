@@ -11,6 +11,7 @@ if (isset($_POST['login'])) {
       redirectWindow("index?Username=Username cannot be empty");
     }
   }
+  
 
   //if it contains password in POST
   if (isset($_POST['Password'])) {
@@ -38,7 +39,8 @@ if (isset($_POST['login'])) {
     //checking the password
     if (password_verify($_POST['Password'], $ValidUser['Password'])) {
       session_start();
-      $_SESSION["USER"] = $ValidUser;
+      showAlert(json_encode($ValidUser));
+      $_SESSION['MANAGER'] = "jkashdkjashdkjashdjk";
       redirectWindow(getHTMLRoot());
     }
     //returning password is incorect

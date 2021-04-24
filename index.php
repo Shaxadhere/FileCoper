@@ -1,8 +1,9 @@
 <?php
 include_once('config.php');
 session_start();
-if (!isset($_SESSION['USER'])) {
-    redirectWindow("auth/index");
+if (!isset($_SESSION['MANAGER'])) {
+    // redirectWindow("auth/index");
+    showAlert(json_encode($_SESSION['MANAGER']));
 }
 ?>
 
@@ -109,6 +110,9 @@ if (!isset($_SESSION['USER'])) {
 <body>
 
     <div id="elfinder"></div>
+
+<button class="btn btn-danger" onclick="location.href='logout'" type="button">Logout</button>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function() {})
