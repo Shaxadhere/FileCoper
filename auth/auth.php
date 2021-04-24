@@ -40,7 +40,7 @@ if (isset($_POST['login'])) {
     if (password_verify($_POST['Password'], $ValidUser['Password'])) {
       session_start();
       showAlert(json_encode($ValidUser));
-      $_SESSION['MANAGER'] = "jkashdkjashdkjashdjk";
+      $_SESSION['USER'] = "jkashdkjashdkjashdjk";
       redirectWindow(getHTMLRoot());
     }
     //returning password is incorect
