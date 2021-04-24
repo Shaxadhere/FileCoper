@@ -116,7 +116,7 @@ if (!isset($_SESSION['USER'])) {
 
         $(document).ready(function() {
             setTimeout(function() {
-                var logoutBtn = "<button onclick='location.href='logout'' style='" +
+                var logoutBtn = "<button onclick='location.href="+'"logout"'+"' style='" +
                     "display: inline-block;" +
                     "font-weight: 200;" +
                     "text-align: center;" +
@@ -130,6 +130,7 @@ if (!isset($_SESSION['USER'])) {
                     "height: 8px" +
                     "'><img style='width: 15px;margin-right: 7px;' src='img/logout.png'/>Logout</button>";
                 $('.elfinder-toolbar').append(logoutBtn)
+                $('#elfinder').attr("style", "width: auto; height: 850px");
             }, 3000);
         });
 
