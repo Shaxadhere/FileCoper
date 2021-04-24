@@ -1,126 +1,181 @@
-<?php
-include('../config.php');
-session_start();
-if(isset($_SESSION['USER'])){
-  redirectWindow(getHTMLRoot() . "/dashboard");
-}
-?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
+<!-- Mirrored from nimoy.ceosdesigns.sk/template/v04/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 24 Apr 2021 07:18:47 GMT -->
+
 <head>
+  <!-- // Required meta tags -->
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, shrink-to-fit=9">
-  <meta name="description" content="ARTT CSS Academy Login">
-  <meta name="author" content="Shehzad Ahmed">
-  <title>Login - ARTT CSS Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Required meta tags // -->
 
-  <link rel="icon" type="image/png" href="<?= getHTMLRoot() ?>/assets/favicon.png">
+  <meta name="description" content="Login and Register Form HTML Template - developed by 'ceosdesigns' - sold exclusively on 'themeforest.net'">
+  <meta name="author" content="ceosdesigns.sk">
 
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500" rel='stylesheet'>
-  <link href='<?= getHTMLRoot() ?>/assets/vendor/unicons-2.0.1/css/unicons.css' rel='stylesheet'>
-  <link href="<?= getHTMLRoot() ?>/assets/css/vertical-responsive-menu.min.css" rel="stylesheet">
-  <link href="<?= getHTMLRoot() ?>/assets/css/style.css" rel="stylesheet">
-  <link href="<?= getHTMLRoot() ?>/assets/css/responsive.css" rel="stylesheet">
-  <link href="<?= getHTMLRoot() ?>/assets/css/night-mode.css" rel="stylesheet">
+  <title>Nimoy · Login and Register Form HTML Template</title>
 
-  <link href="<?= getHTMLRoot() ?>/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="<?= getHTMLRoot() ?>/assets/vendor/OwlCarousel/assets/owl.carousel.css" rel="stylesheet">
-  <link href="<?= getHTMLRoot() ?>/assets/vendor/OwlCarousel/assets/owl.theme.default.min.css" rel="stylesheet">
-  <link href="<?= getHTMLRoot() ?>/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="<?= getHTMLRoot() ?>/assets/vendor/semantic/semantic.min.css">
+  <!-- // Favicon -->
+  <link href="../assets/images/favicon.png" rel="icon">
+  <!-- Favicon // -->
+
+  <!-- // Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;display=swap" rel="stylesheet">
+  <!-- Google Web Fonts // -->
+
+  <!-- // Font Awesome 5 Free -->
+  <link href="../assets/css/font-awesome.css" crossorigin="anonymous" rel="stylesheet">
+  <!-- Font Awesome 5 Free // -->
+
+  <!-- // Template CSS files -->
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/css/styles.css" rel="stylesheet">
+  <!-- Template CSS files  // -->
+<style>
+  .nm-gp-pp{
+    padding: 0px 0px 0px 10px;
+  }
+  .form-control{
+    padding: 0px 0px 0px 40px;
+  }
+</style>
+
 </head>
 
 <body>
+  <!-- // Preloader -->
+  <div id="nm-preloader" class="nm-aic nm-vh-md-100">
+    <div class="nm-ripple">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <!-- Preloader // -->
 
-  <div class="sign_in_up_bg">
-    <div class="container">
-      <div class="row justify-content-lg-center justify-content-md-center">
-        <div class="col-lg-12">
-          <div class="main_logo25" id="logo">
-            <a href="<?= getHTMLRoot() ?>"><img src="<?= getHTMLRoot() ?>/assets/logo.png" alt=""></a>
-            <a href="<?= getHTMLRoot() ?>"><img class="logo-inverse" src="<?= getHTMLRoot() ?>/assets/logo.png" alt=""></a>
+  <main id="page-content" class="d-flex nm-aic nm-vh-md-100" style="position: relative;">
+    <div class="overlay"></div>
+
+    <div class="nm-tm-wr">
+      <div class="container">
+        <form>
+          <div class="nm-hr nm-up-rl-3">
+            <h2>Login</h2>
+            <ul class="social-buttons">
+              <li class="nm-hvr">
+                <a href="http://google.com/">
+                  <i class="fab fa-google"></i>
+                </a>
+              </li>
+              <li class="nm-hvr">
+                <a href="https://twitter.com/">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="nm-hvr">
+                <a href="https://www.facebook.com/">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+            </ul>
           </div>
-        </div>
-        <div class="col-lg-6 col-md-8">
-          <div class="sign_form">
-            <h2>Welcome Back</h2>
-            <p>Log In to Your ARTT CSS Acadmy Account!</p>
-            <form action="auth" method="post">
-              <div class="ui search focus mt-15">
-                <div class="ui left icon input swdh95">
-                  <input class="prompt srch_explore" type="email" name="Email" value="" id="id_email" required="" maxlength="64" placeholder="Email Address">
-                  <i class="uil uil-envelope icon icon2"></i>
-                </div>
-                <?php
-                if(isset($_REQUEST['Email'])){
-                ?>
-                <div class="ui form mt-10 checkbox_sign">
-                  <label class="text-danger"><?= $_REQUEST['Email'] ?></label>
-                </div>
-                <?php
-                }
-                ?>
-              </div>
 
-              <div class="ui search focus mt-15">
-                <div class="ui left icon input swdh95">
-                  <input class="prompt srch_explore" type="password" name="Password" value="" id="id_password" required="" maxlength="100" placeholder="Password">
-                  <i class="uil uil-key-skeleton-alt icon icon2"></i>
-                </div>
-                <?php
-                if(isset($_REQUEST['Password'])){
-                ?>
-                <div class="ui form mt-10 checkbox_sign">
-                  <label class="text-danger"><?= $_REQUEST['Password'] ?></label>
-                </div>
-                <?php
-                }
-                ?>
-                <?php
-                if(isset($_REQUEST['message'])){
-                ?>
-                <div class="ui form mt-10 checkbox_sign">
-                  <label class="text-danger"><?= $_REQUEST['message'] ?></label>
-                </div>
-                <?php
-                }
-                ?>
-              </div>
-
-              <div class="ui form mt-30 checkbox_sign">
-                <div class="inline field">
-                  <div class="ui checkbox mncheck">
-                    <input type="checkbox" tabindex="0" class="hidden">
-                    <label>Remember Me</label>
-                  </div>
-                </div>
-              </div>
-
-              <button class="login-btn" type="submit" name="login">Sign In</button>
-
-            </form>
-            <p class="sgntrm145">Or <a href="forgot-password">Forgot Password</a>.</p>
+          <div class="input-group nm-gp">
+            <span class="nm-gp-pp"><i class="fas fa-user"></i></span>
+            <input type="text" class="form-control" id="inputUsername" tabindex="1" placeholder="Username" required>
           </div>
-          <div class="sign_footer"><img src="<?= getHTMLRoot() ?>/assets/favicon.png" alt="">© <span id="year"></span> <strong> ARTT CSS Academy</strong>. All Rights Reserved.</div>
-        </div>
+
+          <div class="input-group nm-gp">
+            <span class="nm-gp-pp"><i class="fas fa-lock"></i></span>
+            <input type="password" class="form-control" id="inputPassword" tabindex="2" placeholder="Password" required>
+          </div>
+
+          <div class="input-group nm-gp">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="rememberMe">
+              <label class="form-check-label nm-check" for="rememberMe">Keep me logged in</label>
+            </div>
+          </div>
+
+          <div class="row nm-aic nm-mb-1">
+            <div class="col-sm-6 nm-mb-1 nm-mb-sm-0">
+              <button type="submit" class="btn btn-primary nm-hvr nm-btn-2">Log In</button>
+            </div>
+
+            <div class="col-sm-6 nm-sm-tr">
+              <a class="nm-fs-1 nm-fw-bd" href="recover.html">Forgot Password?</a>
+            </div>
+          </div>
+
+          <footer style="text-align: center; margin-top: 2rem; font-size: 0.75rem; color: #97a4af; font-weight: 400;">Don't have an account? <a class="nm-fs-1 nm-fw-bd" style="font-size: 0.75rem;" href="signup.html">Signup</a></footer>
+        </form>
       </div>
+    </div>
+  </main>
+
+  <!-- // Vendor JS files -->
+  <script src="../assets/js/jquery-3.6.0.min.js"></script>
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Vendor JS files // -->
+
+  <!-- Template JS files // -->
+  <script src="../assets/js/script.js"></script>
+  <!-- Template JS files // -->
+
+  <!-- ======================================================= -->
+  <!-- // Setting to allow preview of different color variants -->
+  <!-- ======================================================= -->
+  <div id="settings" style="position: fixed; top: 20%; right: 0%; width: 40px; height: 40px; background-color: #000; color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+    <i class="fas fa-cog"></i>
+    <div id="colors" style="position: absolute; top: 40px; left: 40px; width: 40px; height: 240px; background-color: #000;">
+      <a id="blue" href="#" style="display: block; width: 40px; height: 40px; background-color: #007bff;"></a>
+      <a id="beige" href="#" style="display: block; width: 40px; height: 40px; background-color: #eab8a9;"></a>
+      <a id="burgundy" href="#" style="display: block; width: 40px; height: 40px; background-color: #af102e;"></a>
+      <a id="fuchsia" href="#" style="display: block; width: 40px; height: 40px; background-color: #600da8;"></a>
+      <a id="turquoise" href="#" style="display: block; width: 40px; height: 40px; background-color: #50c8cc;"></a>
+      <a href="https://nimoy.ceosdesigns.sk/index.html" style="display: block; width: 40px; height: 40px; background-color: #000; color: #fff; display: flex; align-items: center; justify-content: center;"><i class="fas fa-home"></i></a>
     </div>
   </div>
 
-  <script src="<?= getHTMLRoot() ?>/assets/js/jquery-3.3.1.min.js"></script>
-  <script src="<?= getHTMLRoot() ?>/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="<?= getHTMLRoot() ?>/assets/vendor/OwlCarousel/owl.carousel.js"></script>
-  <script src="<?= getHTMLRoot() ?>/assets/vendor/semantic/semantic.min.js"></script>
-  <script src="<?= getHTMLRoot() ?>/assets/js/custom.js"></script>
-  <script src="<?= getHTMLRoot() ?>/assets/js/night-mode.js"></script>
   <script>
-    var d = new Date();
-    var n = d.getFullYear();
-    document.getElementById("year").innerHTML = n;
-  </script>
-</body>
+    let tmpLocation = window.location.href;
+    let tmpEndLocation = tmpLocation.split("https://nimoy.ceosdesigns.sk/");
+    let targetLocation = tmpEndLocation[tmpEndLocation.length - 1];
+    targetLocation = targetLocation.replace(".html", "").replace("#", "");
+    let targetLocationArray = [];
 
+    if (targetLocation.includes("_")) {
+      targetLocationArray = targetLocation.split("_");
+      targetLocationArray[1] = "_" + targetLocationArray[1];
+    } else {
+      targetLocationArray[0] = targetLocation;
+      targetLocationArray[1] = "";
+    }
+
+    let l = document.links;
+    for (let i = 0; i < l.length; i++) {
+      let tmp = l[i].attributes.href.nodeValue;
+      l[i].attributes.href.nodeValue = tmp.replace("recover", "recover" + targetLocationArray[1]).replace("login", "login" + targetLocationArray[1]).replace("signup", "signup" + targetLocationArray[1]);
+    }
+
+    document.getElementById("blue").setAttribute('href', "./" + targetLocationArray[0] + ".html");
+    document.getElementById("beige").setAttribute('href', "./" + targetLocationArray[0] + "_1.html");
+    document.getElementById("burgundy").setAttribute('href', "./" + targetLocationArray[0] + "_2.html");
+    document.getElementById("fuchsia").setAttribute('href', "./" + targetLocationArray[0] + "_3.html");
+    document.getElementById("turquoise").setAttribute('href', "./" + targetLocationArray[0] + "_4.html");
+
+    document.getElementById("colors").style.transition = 'all 0.2s';
+    document.getElementById("settings").addEventListener("click", () => {
+      let leftPosition = document.getElementById("colors").style.left;
+
+      if (leftPosition == '40px') {
+        document.getElementById("colors").style.left = '0px';
+      } else {
+        document.getElementById("colors").style.left = '40px';
+      }
+    });
+  </script>
+  <!-- ======================================================= -->
+  <!-- Setting to allow preview of different color variants // -->
+  <!-- ======================================================= -->
+</body>
 
 </html>
